@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Globe - Three.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
+            height: 100vh;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000000 0%, #1a365d 100%);
+        }
+
+        .globe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #f1f5f9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            padding: 1rem 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0891b2, #2563eb);
+            color: white;
+            box-shadow: 0 10px 25px rgba(34, 211, 238, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0e7490, #1d4ed8);
+            box-shadow: 0 15px 35px rgba(34, 211, 238, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(31, 41, 55, 0.5);
+            color: white;
+            border: 1px solid #4b5563;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(55, 65, 81, 0.5);
+            border-color: rgba(34, 211, 238, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .arrow-icon {
+            margin-left: 0.5rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        @media (min-width: 640px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.25rem;
+            }
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="globe-container" id="globe-container">
+            <div class="loading" id="loading">Loading Globe...</div>
+        </div>
+        
+        <div class="content">
+            <h1 class="main-title">
+                Main Title
+            </h1>
+            <p class="subtitle">
+                Subtitle text goes here.
+            </p>
+            
+            <div class="button-container">
+                <a href="#btn1" class="btn btn-primary">
+                    <span>Button 1</span>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+
+                <a href="#btn2" class="btn btn-secondary">
+                    <span>Button 2</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="globe.js"></script>
+</body>
+</html>
