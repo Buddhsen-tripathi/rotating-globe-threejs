@@ -153,14 +153,6 @@ starMaterial.opacity = 0.75;      // Star brightness
 ✅ Check browser hardware acceleration is enabled
 ```
 
-## 📋 Browser Compatibility
-
-- ✅ **Chrome 60+** - Full support
-- ✅ **Firefox 55+** - Full support  
-- ✅ **Safari 12+** - Full support
-- ✅ **Edge 79+** - Full support
-- ⚠️ **Mobile browsers** - Reduced performance on older devices
-
 ## 🏗️ Development & Contributing
 
 **Structure:**
@@ -202,11 +194,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - **WebGL Community** - Inspiration from various globe implementations
 - **Contributors** - Everyone who improves this project
 
----
-
 **⭐ If you use this project, please:**
 1. Give credit to the original author
 2. Star this repository if it helped you
 3. Consider contributing improvements back
 
-Made with 🌍 by [Buddhsen Tripathi](https://github.com/Buddhsen-tripathi)
+Made with 💙 by [Buddhsen Tripathi](https://github.com/Buddhsen-tripathi)
